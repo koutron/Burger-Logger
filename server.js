@@ -41,12 +41,38 @@ app.get("/", function (req, res) {
     });
 });
 
-app.post("/", function(req, res) {
-    // Test it
-    console.log('You sent, ' + req.body.burger);
-  
+app.post("/", function (req, res) {
+    connection.query(
+        "INSERT INTO burgers SET ?",
+        {
+            burgerName: req.body.burger,
+            devoured: false
+        },
+        function (err, res) {
+            if (err) throw err;
+            console.log(res.affectedRows + " product inserted!\n");
+        }
+    );
     res.redirect("/");
-  });
+});
+
+app.get("/api/:id", function (req, res) {
+    connection.query(
+        "UPDATE burgers SET ? WHERE ?",
+        [
+            {
+                devoured: true
+            },
+            {
+                id: req.params.id
+            }
+        ],
+        function (err, res) {
+            if (err) throw err;
+            console.log(res.affectedRows + " products updated!\n"); //optional
+        }
+    );
+});
 
 app.listen(PORT, function () {
     console.log("Server listening on: http://localhost:" + PORT);

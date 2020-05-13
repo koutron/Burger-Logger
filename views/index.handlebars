@@ -8,6 +8,7 @@
             <h3>Nondevoured Burgers</h3>
             {{#each nondevouredBurgers}}
             <p>{{burgerName}}</p>
+            <button value={{id}}>Devour it!</button>
             {{/each}}
         </div>
         <div class="col-6">
@@ -26,3 +27,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("button").on("click", function (event) {
+        const id = $(this).val();
+        $.ajax({
+            url: "api/" + id,
+            method: "GET"
+        }).done(window.location.assign("/"));
+    });
+</script>
