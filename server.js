@@ -12,6 +12,8 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static('public'));
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -30,6 +32,8 @@ connection.connect(function (err) {
     }
     console.log("connected as id " + connection.threadId);
 });
+
+
 
 app.get("/", function (req, res) {
     connection.query("SELECT * FROM burgers WHERE devoured=false;", function (err, nondevoured) {
