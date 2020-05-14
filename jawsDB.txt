@@ -1,0 +1,8 @@
+Connection String
+mysql://ff5oqt0hkpm9iht1:v19n0ro1gdw7oi4s@qn66usrj1lwdk1cc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/flyiaoifgjlv7ufc
+
+Host	    qn66usrj1lwdk1cc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	
+Username	ff5oqt0hkpm9iht1	
+Password	v19n0ro1gdw7oi4s	
+Port	    3306	
+Database	flyiaoifgjlv7ufc

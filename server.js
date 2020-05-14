@@ -17,13 +17,29 @@ app.use(express.static('public'));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var connection = mysql.createConnection({
+const localConfig = {
     host: "localhost",
     port: 3306,
     user: "root",
     password: "poopoo12",
     database: "burgersDB"
-});
+};
+
+const productionConfig = {
+    host: "qn66usrj1lwdk1cc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    port: 3306,
+    user: "ff5oqt0hkpm9iht1",
+    password: "v19n0ro1gdw7oi4s",
+    database: "flyiaoifgjlv7ufc"
+};
+
+let dbConfig = localConfig;
+if(process.env.NODE_ENV === "production"){
+    dbConfig = productionConfig;
+}
+
+//Heroku connection
+const connection = mysql.createConnection(dbConfig);
 
 connection.connect(function (err) {
     if (err) {
