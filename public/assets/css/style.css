@@ -2,6 +2,24 @@
     display: inline-block;
 } */
 
-.burgerName {
+/* .burgerName {
     display: inline-block;
+} */
+
+body {
+    text-align: center;
 }
+
+table {
+    width: 100%;
+}
+
+form {
+    margin: 20px;
+}
+
+.burgerImg {
+    width: 200px;
+}
+
+
