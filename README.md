@@ -1,5 +1,5 @@
 # Burger-Logger
-An application for listing and devouring burgers!
+Node Express app, using MySQL as database and handlebars to serve the HTML.
 
 ## Description
 This application uses a mySQL database to store both devoured and non-devoured burgers.  Burgers that have not been devoured can be eaten.  After burgers are devoured, their properties within the database are updated and the page is re-rendered to show the newly eaten burger as devoured.
